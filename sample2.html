@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+      function login(){
+            var Uname=document.getElementById("txtName").value;
+            var pwd=document.getElementById("txtPwd").value;
+
+            var msg=document.getElementById("msg");
+            var userDetails={userName:'john',password:'admin'};
+
+            (uname==userDetails.userName && pwd==userDetails.password)?
+            document.write("login success"): msg.innerHTML="invalid username/password";
+        }
+
+        function f1(){
+            var name="John";
+            var age="23";
+            var IspermanentRole=true;
+            var cities=["Delhi","Lagos"];
+
+            var getDetails=function(a,b){
+              return a+b;
+            }
+
+            document.write("Datatype of NAME: "+(typeof name)+"<br>" + "Datatype of Age : " +(typeof age)+ "<br>" + "Datatype of role : " +(typeof IspermanentRole));
+        }
+        f1();
+
+        function f2(){
+          var cities=new Array("Chicago","Califonia");
+          var pic=new Image();
+
+          document.write("<br>"+"Cities is an instanceof array : "+(cities instanceof Array)+"<br>" +"Pic is an instanceof image : "+(pic instanceof Image));
+
+          document.write("<br>"+"Cities is an instanceof array : "+(cities instanceof Array)+"<br>" +"Pic is an instanceof image : "+(pic instanceof String));
+        }
+        f2();
+
+        function selectharddisk(){
+            var lstHdd=document.getElementById("lstHdd");
+            var txtRam=document.getElementById("txtRam");
+            if(parseInt(lstHdd.value)>=5)
+            {
+              txtRam.disabled=false;
+              lstHdd.disabled=true;
+            }
+        }
+
+        function selectRam()
+        {
+            var txtRam=document.getElementById("txtRam");
+            var lstGraphic=document.getElementById("lstGraphic");
+            if(txtRam.value>=4)
+            {
+              lstGraphic.disabled=false;
+              txtRam.disabled=true;
+            }
+        }
+
+        function selectGraphic(){
+            var lstGraphic=document.getElementById("lstGraphic");
+            var btnInstall=document.getElementById("btnInstall");
+            if(lstGraphic.value=="yes")
+            {
+              btnInstall.disabled=false;
+              lstGraphic.disabled=true;
+            }
+        }
+
+        function install(){
+            document.write("game installed successfully");
+        }
+  </script>
+</head>
+<body>
+  <div>
+    <fieldset>
+        <legend>Login</legend>
+        <dl>
+            <dt>UserName</dt>
+            <dd><input type="text" id="txtName"></dd>
+            <dt>Password</dt>
+            <dd><input type="password" id="txtPwd"></dd>
+            <br>
+            <input type="button" value="login" onclick="login()">
+        </dl>
+    </fieldset>
+    <div align="center">
+        <h2 id="msg"></h2>
+    </div>
+</div>
+<div>
+    <fieldset>
+          <legend>Install Game</legend>
+          <dl>
+              <dt>Select Available Hard Disk Space</dt>
+              <dd>
+                  <select id="lstHdd" onchange="selectharddisk()">
+                      <option value="2">2GB</option>
+                      <option value="5">5GB</option>
+                      <option value="10">10GB</option>
+                  </select>
+              </dd>
+              <dt>Select Available Ram</dt>
+              <dd>
+                  <input type="number" min="1" max="8" value="1" id="txtRam" disabled onchange="selectRam()">
+              </dd>
+              <dt>Is Graphic Card Available</dt>
+              <dd>
+                  <select id="lstGraphic" disable onchange="selectGraphic()">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                  </select>
+              </dd>
+              <br>
+              <input type="button" id="btnInstall" value="Install"  disabled onclick="install()">
+          </dl>
+    </fieldset>
+</div>
+</body>
+</html>

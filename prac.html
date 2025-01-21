@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Tutorial</title>
+  <!-- Embed method -->
+   <script type="text/JavaScript" lang="JavaScript">
+      "use strict";
+      function printpage(){
+          window.print()
+      }
+      function f1() {
+          var x=10;
+          document.write("x:"+x)
+      }
+      f1();
+      function bodyload(){
+          window.document.images[0].src="images/photo4.jpg";
+          window.document.forms[0].elements[1].value="Register";
+          pic.src="images/photo3.jpg";
+          Home.btnRegister.value="Register";
+      }
+   </script>
+   <script src="xternal.js"></script>
+</head>
+<body onload="bodyload()">
+    <form>
+        <!-- Inline method -->
+        <h2>Click on print button to print receipt</h2>
+        <input type="button" value="print" onclick="window.print()">
+        <br>
+        <h2>Joy is Coming! Click on print button to print page</h2>
+        <input type="button" value="print" onclick="printpage()">
+    </form>
+    <div>
+        <h2>click to print</h2>
+        <input type="button" value="print" onclick="f1()">
+        <br>
+        <img alt="astin" width="200" height="200" border="1"/>
+    </div>
+    <div>
+        <form>
+          Name : <input type="text">
+                 <input type="button">
+        </form>
+        <img alt="lambo" name="pic" width="300" height="300" border="1"/>
+    </div>
+</body>
+</html>

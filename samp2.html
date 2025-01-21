@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refer by TagName & Class</title>
+  <script>
+      function bodyload(){
+          var x=document.getElementByTagName("img");
+          alert("Total no. of images in page "+x.length)
+      }
+  </script>
+</head>
+<body onload="bodyload()">
+    <div>
+        <img src="images/photo6.jpg" alt="car" width="300" height="300" border="1" align="center"/>
+    </div>
+</body>
+</html>

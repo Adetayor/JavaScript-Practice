@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Statements</title>
+  <script>
+      function submitClick(){
+            var userDetails={userName:"john",pin:405,otp:567890};
+            var txtName=document.getElementById("txtName").value;
+            var txtCode=document.getElementById("txtcode").value;
+            var msg=document.getElementById("msg");
+
+            if(userDetails.userName == txtName)
+            {
+                if(userDetails.txtCode)
+                {
+                    msg.innerHTML="pin verified";
+                }
+                else if(userDetails.otp==txtCode)
+                {
+                    msg.innerHTML="otp verified";
+                }
+                else{
+                  msg.innerHTML="invalid otp";
+                }
+            }
+            else{
+              msg.innerHTML="invalid username";
+            }
+      }
+
+      function f1(){
+            var x=0;
+            switch(x)
+            {
+                case 0:
+                  document.write("zero");
+                  case 1:
+                  document.write(" one" +"<br>");
+                  break;
+                  case 2:
+                  document.write(" two");
+                  break;
+                  default:
+                  document.write("enter numbers 0 to 2");
+                  break;
+            }
+      }
+      f1();
+
+      function f2(){
+            var x=0;
+            switch(x)
+            {
+                case 0:
+                  document.write(" zero");
+                  case 1:
+                  document.write(" one");
+                  case 2:
+                  document.write(" two" +"<br>");
+                  break;
+                  default:
+                  document.write("enter numbers 0 to 2");
+                  break;
+            }
+      }
+      f2();
+
+      function f3(){
+            var x=-2;
+            switch(x)
+            {
+                case 0:
+                  document.write(" zero");
+                  break;
+                  case 1:
+                  document.write(" one");
+                  break;
+                  default:
+                  document.write("enter numbers 0 to 2");
+                  break;
+                  case 2:
+                  document.write(" two");
+                  break;
+            }
+      }
+      f3();
+
+      function checkUser(){
+            var Users=[{Name:'john'},
+                        {Name:'david'},
+                        {Name:'Dhoni'},
+                        {Name:'rohit'}
+            ]
+        var userName=document.getElementById("txtName").value;
+        var msg=document.getElementById("msg");
+
+        for(var i=0;i<Users.length;i++)
+       {
+        if(userName==Users[i].Name)
+        {
+            msg.innerHTML="username taken by another";
+            return;
+        }
+        else{
+            msg.innerHTML="Available";
+        }
+       }
+      }
+
+      function changeCode(){
+          var a=Math.random()*10;
+          var b=Math.random()*10;
+          var c=Math.random()*10;
+          var d=Math.random()*10;
+          var e=Math.random()*10;
+
+          document.getElementById("msg").innerHTML=Math.round(a) + " "+Math.round(b) + " "+Math.round(c) + " "+Math.round(d) + " "+Math.round(e);
+      }
+
+      function bodyLoad(){
+        var name=prompt("enter your name");
+        var days=["Sunday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct"];
+
+        var now=new Date();
+        var weekday=now.getDay();
+        var day=now.getDate();
+        var month=now.getMonth();
+        var year=now.getFullYear();
+
+        var today=days[weekday]+" "+day+ ","+" "+months[month]+" "+year;
+
+        document.getElementById("msg").innerHTML=today;
+        var pic=document.getElementById("pic");
+        document.getElementById("uname").innerHTML="Hello "+name;
+        var hrs=now.getHours()
+        if(hrs>=5 && hrs<12)
+        {
+          pic.src="images/photo3.jpg";
+        }
+        else if(hrs>=12 && hrs<17)
+        {
+          pic.src="images/iphone.jpg";
+        }
+        else(hrs>=17 && hrs<=23)
+        {
+          pic.src="images/photo2.jpg";
+        }
+      }
+
+      function f4(){
+          var str=" Welcome to THE ABUNDANT LIFE YOU'VE ALWAYS DREAMED OF";
+          document.write("<br>"+"<br>"+"Your Message :"+" "+str+"<br>"+"Total no.of chars :"+" "+str.length+"<br>"+"CharAt Index1 :"+" "+str.charAt(2)+"<br>"+"e is at index no :"+" "+str.indexOf("e")+"<br>"+"Last index of e : "+" "+str.lastIndexOf("e")+"<br>"+"String from index 7 :"+" "+str.substring(8));
+      }
+      f4();
+
+      function f5(){
+          var cities=["mumbai","chennai","dubai","banglore"];
+          var newCities=cities.slice(1,4);
+          document.write("<br>"+"Cities: " +newCities.toString());
+      }
+      f5();
+
+      function f6(){
+          var cities=["mumbai","chennai","dubai","banglore"];
+          cities.splice(1,0,"goa","pune");
+          document.write("<br>"+"Cities: " +cities.toString());
+      }
+      f6();
+  </script>
+</head>
+<body onload="bodyLoad()">
+    <div>
+        <fieldset>
+            <legend>Payment</legend>
+            <dl>
+              <dt>Name on Card</dt>
+              <dd>
+                <input type="text" id="txtName">
+              </dd>
+              <dt>Pin/Otp</dt>
+              <dd>
+                <input type="text" id="txtcode" placeholder="You can use your Otp">
+              </dd>
+            </dl>
+        </fieldset>
+        <input type="button" value="submit" onclick="submitClick()">
+        <br>
+        <div align="center" id="msg"></div>
+    </div>
+
+    <div>
+        <fieldset>
+              <legend>Names</legend>
+              Username:
+              <input type="text" id="txtName" onkeyup="checkUser()">
+              <span id="msg"></span>
+        </fieldset>
+    </div>
+
+    <div align="center" id="msg">84597</div>
+      <br>
+        <div align="center">
+            <input type="button" value="Refresh" onclick="changeCode()">
+        </div>
+
+      <div id="msg" align="center"></div>
+      <div>
+          <h2 align="center" id="uname"></h2>
+          <br><br>
+          <img src="" id="pic" width="700" height="600">
+      </div>
+</body>
+</html>

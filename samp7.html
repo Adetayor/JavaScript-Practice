@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Variables</title>
+  <script>
+      "use strict"
+      function f1(){
+        var x=10;
+        document.write("x :"+x);
+      }
+      f1();
+
+      function f2(){
+        var x=10;
+        if(x==10){
+            var y=20;
+        }
+        document.write(" x1 :"+x+ "y-" +y);
+      }
+      f2();
+
+      function f3(){
+        var x=10;
+        if(x==10){
+            var x=20;
+        }
+        document.write(" x2 :"+x);
+      }
+      f3();
+
+      function f4(){
+        const x=10;
+        if(x==10){
+            const x=20;
+        }
+        document.write(" x3 :"+x);
+      }
+      f4();
+
+      function f5(){
+         x=30;
+          document.write(" x4 : " +x);  
+          //Js supports hoisting which means you declare your variable any where within a function
+          var x;
+      }
+      f5();
+
+      var x=50;
+      function f6(){
+          document.write(" x5 : " +x);
+      }
+      function f7(){
+         x=60;
+          document.write(" x6 : " +x);
+      }
+      f6();
+      f7();
+
+      function f8(){
+         window.x=70;
+      }
+      function f9(){
+          document.write(" x : " +x);
+      }
+      f8();
+      f9();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

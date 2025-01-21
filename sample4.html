@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Objects</title>
+  <style>
+       dt{
+          background-color: cyan;
+          font-weight: bold;
+       }
+  </style>
+  <script>
+      function viewLarge()
+      {
+          window.open("images/photo1.jpg","Ferrari","width=800 height=600");
+      }
+      function closeWindow()
+      {
+          window.close();
+      }
+
+      function GetDetails()
+      {
+          document.getElementById("details").style.display="block";
+          document.getElementById("host").innerHTML=location.host;
+          var msg=" ";
+          switch(location.protocol)
+          {
+            case "http:":
+            msg="Page accessed from server and secured";
+            break;
+            case "file:":
+            msg="page is not access from server";
+            break;
+          }
+          document.getElementById("protocol").innerHTML=location.protocol+"<br>"+msg;
+          document.getElementById("url").innerHTML=location.href;
+      }
+
+      function getDetails()
+      {
+            document.getElementById("family").innerHTML=navigator.appName;
+            document.getElementById("lang").innerHTML=navigator.language;
+            document.getElementById("cookie").innerHTML=navigator.cookieEnabled;
+            document.getElementById("agent").innerHTML=navigator.userAgent;
+            for(var i=0;I<navigator.plugins.length;i++)
+            {
+                document.getElementById("plug").innerHTML+
+            }
+      }
+  </script>
+</head
+<body>
+    <div>
+        <img src="images/photo1.jpg" width="100" height="100" ondblclick="viewLarge()">
+        <p>Double click on image to view large</p>
+        <input type="button" value="close" onclick="closeWindow()">
+        <input type="button" value="print" onclick="window.print()">
+    </div>
+
+    <div align="center">
+        <input type="button" value="Get client location details" onclick="GetDetails()">
+        <input type="button" value="Refresh" onclick="location.reload()">
+    </div>
+    <div id="details" style="display: none">
+        <dl>
+            <dt>Server Name/Ip Address</dt>
+            <dd id="host"></dd>
+            <dt>Protocol</dt>
+            <dd id="protocol"></dd>
+            <dt>URL</dt>
+            <dd id="url"></dd>
+        </dl>
+    </div>
+
+    <div align="center">
+        <input type="button" value="Get browser details" onclick="">
+    </div>
+    <br>
+    <div>
+        <dl>
+            <dt>Browser family</dt>
+            <dd id="family"></dd>
+            <dt>Browser Language</dt>
+            <dd id="lang"></dd>
+            <dt>Cookie Enabled</dt>
+            <dd id="cookie"></dd>
+            <dt>Supported on</dt>
+            <dd id="agent"></dd>
+            <dt>Plugin Supported</dt>
+            <dd id="plug"></dd>
+            <dt>Can user view pdf document</dt>
+            <dd id="msg"></dd>
+        </dl>
+    </div>
+</body>
+</html>

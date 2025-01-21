@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object Type</title>
+  <script>
+      function f1(){
+          var product={
+              Id : 1,
+              Name : "Telsa Car",
+              price : 45000.53,
+              IsInStock : false,
+              Quantity : 3,
+              shippedTo : ['Lagos',' Dubai'],
+              Total : function(){
+                  return product.Quantity*product.price;
+              }
+          }
+          if(product.IsInStock==true)
+            stock="Available";
+            else
+              stock="out of stock";
+
+              document.write("Id : " +product.Id+ "<br>" + "Name = " +product.Name+ "<br>" + "price = " +product.price+ "<br>" + "Is in stock = " +stock+ "<br>"+ "shipped to = " + product.shippedTo+ "<br>" + "Total Amount = " +product.Total())
+      }
+      f1();
+
+      function showProducts(){
+            var products=[
+                {Id:1,Name:"Astra Jet", Price:45000, photo:"images/Jet.jpeg"},
+                {Id:2,Name:"Airbus", Price:80000,photo:"images/Airbus.jpg"},
+                {Id:3,Name:"Twin Tower", Price:45000, photo:"images/Tower.jpg"}
+            ];
+            var pic=document.getElementById("pic");
+            var txtRange=document.getElementById("txtRange");
+            var prodId=document.getElementById("prodId");
+            var prodName=document.getElementById("prodName");
+            var prodPrice=document.getElementById("prodPrice");
+
+            pic.src=products[txtRange.value].photo;
+            prodId.innerHTML=products[txtRange.value].Id;
+            prodName.innerHTML=products[txtRange.value].Name;
+            prodPrice.innerHTML=products[txtRange.value].Price;
+      }
+
+      function verifypassword(){
+          var pwd=document.getElementById("txtPwd").value;
+          var msg=document.getElementById("msg");
+          var grade=document.getElementById("grade");
+
+          function showGrade(min,max,value,low,high){
+              grade.min=min;
+              grade.max=max;
+              grade.value=value;
+              grade.low=low;
+              grade.high=high;
+          }
+
+          var regExp=/(?=*[A-Z])\w{4,15}/;
+
+          if(pwd.match(regExp)){
+              msg.innerHTML="strong password";
+              showGrade(1,100,100,0,0);
+          }
+          else{
+            if(pwd.length<4){
+                msg.innerHTML="poor password";
+                showGrade(1,100,100,60,80);
+            }
+            else{
+                msg.innerHTML="weak password";
+                showGrade(1,100,100,40,80);
+            }
+          }
+        
+      }
+  </script>
+</head>
+<body>
+    <div>
+        <table width="500" border="2" cellspacing="4" cellpadding="4" align="center">
+              <tr>
+                  <td>
+                      <img src="" id="pic" width="200" height="200">
+                  </td>
+              </tr>
+              <tr>
+                <td>Product Id</td>
+                <td id="prodId"></td>
+              </tr>
+              <tr>
+                <td>Product Name</td>
+                <td id="prodName"></td>
+              </tr>
+              <tr>
+                <td>Product Price</td>
+                <td id="prodPrice"></td>
+              </tr>
+        </table>
+        <div>
+            <input type="range" id="txtRange" min="0" max="3" value="0" onchange="showProducts()">
+        </div>
+    </div>
+    <div>
+        <fieldset>
+              <legend>Password</legend>
+              <input type="password" id="twtpwd" onkeyup="verifypassword()">
+              <meter min="1" max="100" value="0" low="0" high="0" id="grade"></meter>
+              <span id="msg"></span>
+        </fieldset>
+    </div>
+</body>
+</html>

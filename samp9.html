@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Primitive Data Types</title>
+  <script>
+      function f1(){
+          var product=[1,"mobile",13000.50,true];
+          document.write(" id : "+product[0]+"<br>"+"Name : "+product[1]+ "<br>"+"price : " +product[2]+ "<br>" + "is in stock : "+product[3]);
+      }
+      f1();
+
+      function showProducts(){
+          var productNames=["LG Nano Tv", "iphone", "Reebok shoes", "lee cooper", "bike"];
+          var productImages=["images/Lg.jpg","images/iphone.jpg","images/Reebok.jpg","images/lee cooper.jpg", "images/bike.jpg"];
+
+          var prodName=document.getElementById("prodName");
+          var pic=document.getElementById("pic");
+          var txtRange=document.getElementById("txtRange");
+
+          prodName.innerHTML=productNames[txtRange.value];
+          pic.src=productImages[txtRange.value];
+      }
+  </script>
+</head>
+<body>
+    <div>
+        <table width="500" border="2" cellspacing="5" cellpadding="5" align="center">
+            <tr>
+              <td align="center" id="prodName"></td>
+            </tr>
+            <tr>
+              <td>
+                <img id="pic" src="bike.jpg" width="500" height="300">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="range" id="txtRange" min="0" max="4" value="0" onchange="showProducts()">
+              </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

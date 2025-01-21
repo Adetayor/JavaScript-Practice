@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Operators</title>
+  <script>
+        var products=["images/bike.jpg","images/iphone.jpg","images/lee cooper.jpg"];
+        var count=0;
+
+        function previousClick(){
+            var pic=document.getElementById("pic");
+            count--;
+            pic.src=products[count];
+        }
+
+        function nextClick(){
+            var pic=document.getElementById("pic");
+            count++; 
+            pic.src=products[count];
+        }
+
+        function submitClick(){
+            var java=document.getElementById("optJava");
+            var dot=document.getElementById("optDot");
+            var python=document.getElementById("optPython");
+            var msg=document.getElementById("msg");
+
+            var courses="";
+            if(java.checked)
+            {
+                courses += java.value+"<br>";
+            }
+            if(dot.checked)
+            {
+                courses += dot.value+"<br>";
+            }
+            if(python.checked)
+            {
+                courses += python.value+"<br>";
+            }
+            msg.innerHTML="Selected Courses "+"<br>"+courses;
+        }
+
+        function login(){
+            var Uname=document.getElementById("txtName").value;
+            var pwd=document.getElementById("txtPwd").value;
+
+            var msg=document.getElementById("msg");
+            var userDetails={userName:'john',password:'admin'};
+
+            (uname==userDetails.userName && pwd==userDetails.password)?
+            document.write("login success"): msg.innerHTML="invalid username/password";
+        }
+
+        function create(){
+            var container=document.getElementById("container");
+            var pic=new Image();
+            pic.src="images/car.jpg";
+            pic.width="900";
+            pic.height="500";
+            pic.border="2";
+            container.appendChild(pic);
+        }
+  </script>
+</head>
+<body>
+    <div>
+        <table width="800" border="2" cellspacing="5" align="center">
+            <tr>
+                <td>
+                    <input type="buttom" value="previous" onclick="previousClick()">
+                </td>
+                <td>
+                  <img src="images/photo2.jpg" width="800" height="600" id="pic">
+              </td>
+              <td>
+                <input type="button" value="next" onclick="nextClick()">
+            </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <fieldset>
+            <legend>Select Courses</legend>
+            <ul>
+                <li>
+                    <input type="checkbox" id="optJava" value="java">Java
+                </li>
+                <li>
+                    <input type="checkbox" id="optDot" value=".Net">.Net
+                </li>
+                <li>
+                    <input type="checkbox" id="optPython" value="python">Python
+                </li>
+            </ul>
+            <br>
+            <input type="button" value="Submit" onclick="submitClick()">
+        </fieldset>
+        <br>
+        <div align="center" id="msg"></div>
+    </div>
+    <div>
+        <fieldset>
+            <legend>Login</legend>
+            <dl>
+                <dt>UserName</dt>
+                <dd><input type="text" id="txtName"></dd>
+                <dt>Password</dt>
+                <dd><input type="password" id="txtPwd"></dd>
+                <br>
+                <input type="button" value="login" onclick="login()">
+            </dl>
+        </fieldset>
+        <div align="center">
+            <h2 id="msg"></h2>
+        </div>
+    </div>
+    <div>
+        <div id="container">
+
+        </div>
+        <br>
+        <input type="button" value="create image" onclick="create()">
+    </div>
+</body>
+</html>

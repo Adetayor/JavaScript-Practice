@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document.write/innerhtml/innertext</title>
+  <script>
+      function RegisterClick(){
+          name=document.getElementById("txtName").value;
+          msg=document.write("Hello " +name);
+      }
+      function DeleteClick(){
+          x=confirm("Record will be deleted");
+          msg=document.getElementById("mas");
+          if(x==true){
+            mas.innerText="Record Deleted";
+          }
+          else{
+            mas.innerHTML="<font color='aqua'>Action canceled</font>";
+          }
+      }
+      function bodyload(){
+          alert("HAPPY NEW YEAR");
+          console.log("Page is Successfully Loaded")
+      }
+  </script>
+</head>
+<body onload="DeleteClick(), bodyload()">
+    <!-- innerText will print just the text but innerHTML will print with markup html related tags -->
+    <form>
+        Enter name :
+            <input type="text" id="txtName">
+            <input type="button" value="Register" onclick="RegisterClick()">
+            <br>
+            <div allign="center" id="msg"></div>
+            <br>
+            <div id="mas"></div>
+    </form>
+</body>
+</html>
