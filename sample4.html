@@ -44,14 +44,37 @@
             document.getElementById("lang").innerHTML=navigator.language;
             document.getElementById("cookie").innerHTML=navigator.cookieEnabled;
             document.getElementById("agent").innerHTML=navigator.userAgent;
-            for(var i=0;I<navigator.plugins.length;i++)
+            for(var i=0;i<navigator.plugins.length;i++)
             {
-                document.getElementById("plug").innerHTML+
+                document.getElementById("plug").innerHTML+=navigator.plugins[i].name+"<br>";
             }
+            var msg=document.getElementById("msg");
+            if(navigator.plugins["chrome pdf viewer"==undefined])
+            {
+                msg.innerHTML="no";
+            }
+            else{
+                msg.innerHTML="yes";
+            }
+      }
+
+      function bodyload(){
+            if(history.length>3)
+            {
+                alert("register for more");
+                location.href="A1.html";
+            }
+            else{
+                document.write("you can view max 3 pages for free");
+            }
+      }
+
+      function submitClick(obj,e){
+            document.write("button name : "+obj.name+ "<br> " + "button value :" +obj.value+ "<br>" + "clicked at x :"+e.clientx);
       }
   </script>
 </head
-<body>
+<body onload="bodyload()">
     <div>
         <img src="images/photo1.jpg" width="100" height="100" ondblclick="viewLarge()">
         <p>Double click on image to view large</p>
@@ -75,7 +98,7 @@
     </div>
 
     <div align="center">
-        <input type="button" value="Get browser details" onclick="">
+        <input type="button" value="Get browser details" onclick="getDetails()">
     </div>
     <br>
     <div>
@@ -94,5 +117,7 @@
             <dd id="msg"></dd>
         </dl>
     </div>
+
+        <input type="button" value="submit" name="btnSubmit" onclick="submitClick(this,event)">
 </body>
 </html>
